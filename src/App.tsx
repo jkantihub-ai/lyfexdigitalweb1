@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import {
   APPROACH_PHASES,
@@ -13,7 +13,8 @@ import {
   type JournalArticle,
   type LegalDocument,
 } from './data/siteContent';
-import { Navbar } from './components/Navbar';
+import { Navbar, type ActivePage } from './components/Navbar';
+import { AboutPage } from './components/AboutPage';
 import { ResilientImage } from './components/ResilientImage';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { JournalModal } from './components/JournalModal';
@@ -28,7 +29,17 @@ const WORK_FILTERS: WorkFilter[] = [
   'Growth Systems',
 ];
 
+function resolvePageFromLocation(): ActivePage {
+  if (typeof window === 'undefined') return 'home';
+  const normalizedPath = window.location.pathname.replace(/\/+$/, '');
+  if (window.location.hash === '#about' || normalizedPath.endsWith('/about')) {
+    return 'about';
+  }
+  return 'home';
+}
+
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<ActivePage>(resolvePageFromLocation);
   const [activeFilter, setActiveFilter] = useState<WorkFilter>('All Work');
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
   const [activeArticle, setActiveArticle] = useState<JournalArticle | null>(null);
@@ -36,18 +47,70 @@ export default function App() {
   const [preselectedScope, setPreselectedScope] = useState<InquiryScope>('Product Engineering');
   const [preselectedNote, setPreselectedNote] = useState('');
 
+  useEffect(() => {
+    const syncPageWithHash = () => {
+      const nextPage = resolvePageFromLocation();
+      setCurrentPage(nextPage);
+      if (nextPage === 'about') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('hashchange', syncPageWithHash);
+    window.addEventListener('popstate', syncPageWithHash);
+    return () => {
+      window.removeEventListener('hashchange', syncPageWithHash);
+      window.removeEventListener('popstate', syncPageWithHash);
+    };
+  }, []);
+
   const filteredStudies = useMemo(() => {
     if (activeFilter === 'All Work') return CASE_STUDIES;
     return CASE_STUDIES.filter((study) => study.category === activeFilter);
   }, [activeFilter]);
 
+  const navigateTo = (page: ActivePage, sectionId?: string) => {
+    if (page === 'about') {
+      setCurrentPage('about');
+      if (window.location.hash !== '#about') {
+        window.history.pushState(null, '', '#about');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const wasOnAbout = currentPage === 'about';
+    setCurrentPage('home');
+    const targetHash = sectionId && sectionId !== 'top' ? `#${sectionId}` : '#top';
+    if (window.location.hash !== targetHash) {
+      window.history.pushState(null, '', targetHash);
+    }
+
+    if (!sectionId || sectionId === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const scrollToTarget = () => {
+      const targetEl = document.getElementById(sectionId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (wasOnAbout) {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(scrollToTarget);
+      });
+    } else {
+      scrollToTarget();
+    }
+  };
+
   const scrollToContact = (scope?: InquiryScope, note?: string) => {
     if (scope) setPreselectedScope(scope);
     if (note !== undefined) setPreselectedNote(note);
-    const contactEl = document.getElementById('contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    navigateTo('home', 'contact');
   };
 
   const handleDiscussSimilarScope = (category: CaseStudyCategory, clientRef: string) => {
@@ -77,9 +140,20 @@ export default function App() {
 
   return (
     <div id="top" className="min-h-screen bg-[#FAFAFA] text-[#0E1116]">
-      <Navbar onStartProject={() => scrollToContact()} />
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={navigateTo}
+        onStartProject={() => scrollToContact()}
+      />
 
       <main>
+        {currentPage === 'about' ? (
+          <AboutPage
+            onStartProject={scrollToContact}
+            onViewWork={() => navigateTo('home', 'work')}
+          />
+        ) : (
+          <>
         {/* 1. HERO SECTION: Proposition + Architectural Visual + Full-Width Proof Strip */}
         <section className="pt-12 pb-16 lg:pt-20 lg:pb-24">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
@@ -484,6 +558,8 @@ export default function App() {
           preselectedScope={preselectedScope}
           preselectedNote={preselectedNote}
         />
+          </>
+        )}
       </main>
 
       {/* QUIET FOOTER */}
@@ -493,6 +569,10 @@ export default function App() {
             <div>
               <a
                 href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'top');
+                }}
                 className="font-display text-base font-semibold tracking-tight text-[#0E1116]"
               >
                 Lyfex Digital
@@ -506,19 +586,68 @@ export default function App() {
               aria-label="Footer navigation"
               className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-600"
             >
-              <a href="#capabilities" className="transition-colors hover:text-[#0E1116]">
+              <a
+                href="#capabilities"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'capabilities');
+                }}
+                className="transition-colors hover:text-[#0E1116]"
+              >
                 Capabilities
               </a>
-              <a href="#work" className="transition-colors hover:text-[#0E1116]">
+              <a
+                href="#work"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'work');
+                }}
+                className="transition-colors hover:text-[#0E1116]"
+              >
                 Work
               </a>
-              <a href="#approach" className="transition-colors hover:text-[#0E1116]">
+              <a
+                href="#approach"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'approach');
+                }}
+                className="transition-colors hover:text-[#0E1116]"
+              >
                 Approach
               </a>
-              <a href="#journal" className="transition-colors hover:text-[#0E1116]">
+              <a
+                href="#journal"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'journal');
+                }}
+                className="transition-colors hover:text-[#0E1116]"
+              >
                 Journal
               </a>
-              <a href="#contact" className="transition-colors hover:text-[#0E1116]">
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('about');
+                }}
+                className={`transition-colors ${
+                  currentPage === 'about'
+                    ? 'font-medium text-[#0E1116]'
+                    : 'hover:text-[#0E1116]'
+                }`}
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'contact');
+                }}
+                className="transition-colors hover:text-[#0E1116]"
+              >
                 Contact
               </a>
             </nav>

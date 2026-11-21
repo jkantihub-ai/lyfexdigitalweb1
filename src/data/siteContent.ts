@@ -1,3 +1,9 @@
+import heroLyfexStudioImg from '../assets/images/hero_lyfex_studio_1795276674405.jpg';
+import workNordicFintechImg from '../assets/images/work_nordic_fintech_1795276715758.jpg';
+import workKinetixMobilityImg from '../assets/images/work_kinetix_mobility_1795276674260.jpg';
+import workVerveCommerceImg from '../assets/images/work_verve_commerce_1795276673224.jpg';
+import workSolisEnergyImg from '../assets/images/work_solis_energy_1795276673324.jpg';
+
 export type CaseStudyCategory = 'Product Engineering' | 'Brand & Web' | 'Growth Systems';
 
 export interface MetricItem {
@@ -76,7 +82,7 @@ export interface LegalDocument {
 }
 
 export const HERO_MEDIA = {
-  image: '/src/assets/images/hero_lyfex_studio_1795276674405.jpg',
+  image: heroLyfexStudioImg,
   alt: 'Lyfex Digital design and engineering studio interior with oak worktables and natural daylight through floor-to-ceiling windows',
   caption: 'Lyfex Digital Studio — Austin & London',
 };
@@ -176,7 +182,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Financial Infrastructure',
     year: '2026',
     location: 'London',
-    image: '/src/assets/images/work_nordic_fintech_1795276715758.jpg',
+    image: workNordicFintechImg,
     imageAlt: 'Laptop displaying Nova Capital Analytics workspace interface on a honed concrete desk',
     headlineMetric: '-64% Onboarding Time',
     headlineMetricContext: 'Reduced enterprise client setup from 19 days to 6.8 days in Q1–Q2',
@@ -213,7 +219,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Electric Mobility',
     year: '2026',
     location: 'Amsterdam',
-    image: '/src/assets/images/work_kinetix_mobility_1795276674260.jpg',
+    image: workKinetixMobilityImg,
     imageAlt: 'Matte charcoal Volt electric commuter bike photographed inside a sunlit concrete pavilion',
     headlineMetric: '+148% Test-Ride Bookings',
     headlineMetricContext: 'Measured across 4 European launch cities over the first 120 days',
@@ -250,7 +256,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Consumer Wellness',
     year: '2025',
     location: 'Austin',
-    image: '/src/assets/images/work_verve_commerce_1795276673224.jpg',
+    image: workVerveCommerceImg,
     imageAlt: 'Minimalist matte stone and frosted glass Aura Botanics skincare vessels arranged on travertine',
     headlineMetric: '+52% Repeat Revenue',
     headlineMetricContext: 'Subscription retention lift measured over 6 billing cycles post-launch',
@@ -287,7 +293,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Clean Energy Engineering',
     year: '2025',
     location: 'Denver',
-    image: '/src/assets/images/work_solis_energy_1795276673324.jpg',
+    image: workSolisEnergyImg,
     imageAlt: 'Aurora Solutions clean energy engineering headquarters with geometric glass and steel facade at golden hour',
     headlineMetric: '$4.6M Qualified Pipeline',
     headlineMetricContext: 'Attributed to organic search and interactive ROI assessment in 9 months',

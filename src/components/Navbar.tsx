@@ -1,19 +1,28 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
+export type ActivePage = 'home' | 'about';
+
 interface NavbarProps {
+  currentPage: ActivePage;
+  onNavigate: (page: ActivePage, sectionId?: string) => void;
   onStartProject: () => void;
 }
 
-const NAV_LINKS = [
-  { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Work', href: '#work' },
-  { label: 'Approach', href: '#approach' },
-  { label: 'Journal', href: '#journal' },
+const HOME_SECTION_LINKS = [
+  { label: 'Capabilities', sectionId: 'capabilities' },
+  { label: 'Work', sectionId: 'work' },
+  { label: 'Approach', sectionId: 'approach' },
+  { label: 'Journal', sectionId: 'journal' },
 ];
 
-export function Navbar({ onStartProject }: NavbarProps) {
+export function Navbar({ currentPage, onNavigate, onStartProject }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleNavClick = (page: ActivePage, sectionId?: string) => {
+    setMobileOpen(false);
+    onNavigate(page, sectionId);
+  };
 
   const handleMobileCta = () => {
     setMobileOpen(false);
@@ -26,25 +35,49 @@ export function Navbar({ onStartProject }: NavbarProps) {
         {/* Zone 1: Single-element Brand Wordmark */}
         <a
           href="#top"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('home', 'top');
+          }}
           className="font-display text-lg font-semibold tracking-tight text-[#0E1116] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8]"
         >
           Lyfex Digital
         </a>
 
-        {/* Zone 2: 4 concise single-line text links */}
+        {/* Zone 2: 5 concise single-line text links */}
         <nav
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-600"
         >
-          {NAV_LINKS.map((link) => (
+          {HOME_SECTION_LINKS.map((link) => (
             <a
-              key={link.href}
-              href={link.href}
+              key={link.sectionId}
+              href={`#${link.sectionId}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('home', link.sectionId);
+              }}
               className="relative py-1 whitespace-nowrap shrink-0 transition-colors duration-150 hover:text-[#0E1116] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#0E1116] after:transition-[width] after:duration-200 hover:after:w-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8]"
             >
               {link.label}
             </a>
           ))}
+
+          <a
+            href="#about"
+            aria-current={currentPage === 'about' ? 'page' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('about');
+            }}
+            className={`relative py-1 whitespace-nowrap shrink-0 transition-colors duration-150 after:absolute after:bottom-0 after:left-0 after:h-px after:bg-[#0E1116] after:transition-[width] after:duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8] ${
+              currentPage === 'about'
+                ? 'text-[#0E1116] after:w-full'
+                : 'hover:text-[#0E1116] after:w-0 hover:after:w-full'
+            }`}
+          >
+            About
+          </a>
         </nav>
 
         {/* Zone 3: 1 Primary Action (Desktop) + Mobile Menu Trigger */}
@@ -77,16 +110,34 @@ export function Navbar({ onStartProject }: NavbarProps) {
           className="border-t border-neutral-200 bg-[#FAFAFA] px-6 py-5 md:hidden"
         >
           <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {HOME_SECTION_LINKS.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
+                key={link.sectionId}
+                href={`#${link.sectionId}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('home', link.sectionId);
+                }}
                 className="flex min-h-[44px] items-center text-base font-medium text-neutral-700 transition-colors hover:text-[#0E1116]"
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="#about"
+              aria-current={currentPage === 'about' ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('about');
+              }}
+              className={`flex min-h-[44px] items-center text-base font-medium transition-colors ${
+                currentPage === 'about'
+                  ? 'text-[#1D4ED8]'
+                  : 'text-neutral-700 hover:text-[#0E1116]'
+              }`}
+            >
+              About
+            </a>
             <div className="pt-3">
               <button
                 type="button"

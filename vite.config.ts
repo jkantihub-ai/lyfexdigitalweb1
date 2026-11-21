@@ -5,7 +5,10 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
+  let resolvedOutDir = 'dist';
+
   return {
+    base: './',
     plugins: [
       react(),
       tailwindcss(),
@@ -15,15 +18,24 @@ export default defineConfig(() => {
       {
         name: 'copy-unbundled-src-assets',
         apply: 'build',
+        configResolved(config) {
+          resolvedOutDir = config.build.outDir;
+        },
         closeBundle(error?: Error): void {
           if (error) {
             return;
           }
-          const distDir = path.resolve(__dirname, 'dist');
+          const outDirPath = path.resolve(__dirname, resolvedOutDir);
           const srcAssets = path.resolve(__dirname, 'src/assets');
-          const distAssets = path.resolve(distDir, 'src/assets');
-          if (fs.existsSync(distDir) && fs.existsSync(srcAssets)) {
-            fs.cpSync(srcAssets, distAssets, {recursive: true, force: true});
+          const outAssets = path.resolve(outDirPath, 'src/assets');
+          if (fs.existsSync(outDirPath) && fs.existsSync(srcAssets)) {
+            fs.cpSync(srcAssets, outAssets, {recursive: true, force: true});
+          }
+          // Emit 404.html copy of index.html for GitHub Pages direct-route fallback.
+          const indexHtml = path.resolve(outDirPath, 'index.html');
+          const notFoundHtml = path.resolve(outDirPath, '404.html');
+          if (fs.existsSync(indexHtml)) {
+            fs.copyFileSync(indexHtml, notFoundHtml);
           }
         },
       },
