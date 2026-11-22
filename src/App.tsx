@@ -4,6 +4,7 @@ import {
   APPROACH_PHASES,
   CAPABILITIES,
   CASE_STUDIES,
+  CLIENT_BRANDS,
   ECOSYSTEM_PARTNERS,
   HERO_MEDIA,
   IMPACT_METRICS,
@@ -505,6 +506,67 @@ export default function App() {
                         >
                           {filter}
                         </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Brands & Partners Roster */}
+                <div className="mt-12 border-y border-neutral-200 py-8">
+                  <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
+                    <p className="text-xs font-medium text-[#0E1116]">
+                      Selected Brands &amp; Partners
+                    </p>
+                    <p className="text-xs text-neutral-500">
+                      Physical businesses, co-working spaces, healthcare retail &amp; overseas teams
+                    </p>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {CLIENT_BRANDS.map((brand) => {
+                      const linkedStudy = brand.caseStudyId
+                        ? CASE_STUDIES.find((item) => item.id === brand.caseStudyId)
+                        : undefined;
+
+                      return (
+                        <div
+                          key={brand.name}
+                          className="flex items-baseline justify-between gap-4 border-t border-neutral-200/70 pt-3.5"
+                        >
+                          <div>
+                            {linkedStudy ? (
+                              <button
+                                type="button"
+                                onClick={() => setSelectedStudy(linkedStudy)}
+                                className="font-display text-base font-semibold tracking-tight text-[#0E1116] transition-colors hover:text-[#1D4ED8] cursor-pointer text-left"
+                              >
+                                {brand.name}
+                              </button>
+                            ) : (
+                              <div className="font-display text-base font-semibold tracking-tight text-[#0E1116]">
+                                {brand.name}
+                              </div>
+                            )}
+                            <p className="mt-0.5 text-xs text-neutral-500">
+                              {brand.sector}
+                              <span className="mx-1.5" aria-hidden="true">
+                                ·
+                              </span>
+                              {brand.region}
+                            </p>
+                          </div>
+
+                          {linkedStudy && (
+                            <button
+                              type="button"
+                              onClick={() => setSelectedStudy(linkedStudy)}
+                              aria-label={`Inspect ${brand.name} engagement`}
+                              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-[#1D4ED8] cursor-pointer"
+                            >
+                              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                            </button>
+                          )}
+                        </div>
                       );
                     })}
                   </div>

@@ -1,8 +1,8 @@
 import heroLyfexStudioImg from '../assets/images/hero_lyfex_studio_1795276674405.jpg';
+import clientGreentopliImg from '../assets/images/client_greentopli_1795309876794.jpg';
+import clientStintCoworkingImg from '../assets/images/client_stint_coworking_1795309875537.jpg';
+import clientSamratMedicalImg from '../assets/images/client_samrat_medical_1795309876052.jpg';
 import workNordicFintechImg from '../assets/images/work_nordic_fintech_1795276715758.jpg';
-import workKinetixMobilityImg from '../assets/images/work_kinetix_mobility_1795276674260.jpg';
-import workVerveCommerceImg from '../assets/images/work_verve_commerce_1795276673224.jpg';
-import workSolisEnergyImg from '../assets/images/work_solis_energy_1795276673324.jpg';
 
 export type CaseStudyCategory = 'Product Engineering' | 'Brand & Web' | 'Growth Systems';
 
@@ -195,6 +195,50 @@ export const UMBRELLA_PORTFOLIO: UmbrellaBrand[] = [
   },
 ];
 
+export interface ClientBrandEntry {
+  name: string;
+  sector: string;
+  region: string;
+  caseStudyId?: string;
+}
+
+export const CLIENT_BRANDS: ClientBrandEntry[] = [
+  {
+    name: 'GreenTopli',
+    sector: 'Fresh Produce & Hospitality Supply',
+    region: 'Mumbai & Goa, India',
+    caseStudyId: 'greentopli',
+  },
+  {
+    name: 'Stint Studio Co-Working Space',
+    sector: 'Co-Working Spaces',
+    region: 'India',
+    caseStudyId: 'stint-studio',
+  },
+  {
+    name: 'Samrat Medical',
+    sector: 'Healthcare & Pharmacy Retail',
+    region: 'Goa, India',
+    caseStudyId: 'samrat-medical',
+  },
+  {
+    name: 'Nova Capital Analytics',
+    sector: 'Financial Infrastructure',
+    region: 'Mumbai & London',
+    caseStudyId: 'nova-capital',
+  },
+  {
+    name: 'Regional Hospitality & Retail Partners',
+    sector: 'Physical & Omnichannel',
+    region: 'Goa & Pan-India',
+  },
+  {
+    name: 'Overseas Startups & Angel Portfolios',
+    sector: 'SaaS & Digital Ventures',
+    region: 'UK, Europe, UAE & APAC',
+  },
+];
+
 export const IMPACT_METRICS: MetricItem[] = [
   {
     value: '42+',
@@ -283,9 +327,123 @@ export const CAPABILITIES: CapabilityItem[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    id: 'greentopli',
+    client: 'GreenTopli',
+    title: 'Digital storefront and B2B ordering presence for fresh & exotic produce supply',
+    category: 'Product Engineering',
+    industry: 'Fresh Produce & Supply',
+    year: '2026',
+    location: 'Mumbai & Goa',
+    image: clientGreentopliImg,
+    imageAlt:
+      'Fresh heirloom greens, exotic vegetables, and culinary herbs arranged in a woven basket on limestone for GreenTopli',
+    headlineMetric: 'Physical-to-Digital Commerce',
+    headlineMetricContext: 'Streamlined wholesale & direct ordering across hospitality and retail buyers',
+    summary:
+      'Partnered with GreenTopli to establish a crisp digital storefront, structured catalog architecture, and inquiry-to-order workflow bridging farm-fresh supply with hospitality kitchens and regional buyers.',
+    challenge:
+      'High-frequency produce suppliers often rely on scattered phone and messaging threads for daily stock inquiries, creating friction when expanding to new restaurants, hotels, and direct retail buyers.',
+    architecture:
+      'Designed a clean, mobile-first web presence organized around seasonal exotic produce categories, transparent wholesale inquiry flows, and search-ready regional landing pages.',
+    deliverables: [
+      'Digital Brand & Storefront Architecture',
+      'Catalog & Seasonal Produce Structure',
+      'B2B & Retail Order Inquiry Flows',
+      'Regional Search & Performance Setup',
+    ],
+    outcomes: [
+      { figure: 'Mobile-First', detail: 'Fast-loading ordering & inquiry UX built for kitchen and procurement leads on cellular networks' },
+      { figure: 'Unified Catalog', detail: 'Structured product taxonomy covering exotic greens, herbs, and fresh kitchen staples' },
+      { figure: 'Omnichannel', detail: 'Bridges physical cold-chain distribution with direct online discovery across Mumbai & Goa' },
+    ],
+    testimonial: {
+      quote:
+        'Working with LyfexDigital® gave GreenTopli a clear, dependable online home that reflects the quality of our fresh produce and makes it simple for both hospitality kitchens and direct buyers to connect with us.',
+      author: 'Operations Desk',
+      role: 'Client Partner Summary',
+      company: 'GreenTopli',
+    },
+  },
+  {
+    id: 'stint-studio',
+    client: 'Stint Studio Co-Working Space',
+    title: 'Multi-location workspace showcase, tour booking, and member growth engine',
+    category: 'Brand & Web',
+    industry: 'Co-Working Spaces',
+    year: '2026',
+    location: 'India',
+    image: clientStintCoworkingImg,
+    imageAlt:
+      'Sunlit contemporary co-working space with pale oak communal desks and glass partitions representing Stint Studio Co-Working Space',
+    headlineMetric: 'Multi-Location Booking Funnel',
+    headlineMetricContext: 'Unified brand experience, workspace plans, and local lead capture across hubs',
+    summary:
+      'Built an editorial workspace flagship and structured lead-capture system for Stint Studio Co-Working Space—clarifying private cabins, dedicated desks, and meeting rooms for founders and distributed teams.',
+    challenge:
+      'Growing co-working operators struggle to communicate location amenities, flexible seat plans, and community culture clearly without losing high-intent local search visitors to aggregator directories.',
+    architecture:
+      'Crafted a clean location-driven web architecture pairing crisp workspace photography with transparent plan comparisons, one-step tour scheduling, and local SEO structure per hub.',
+    deliverables: [
+      'Co-Working Brand & Web Flagship',
+      'Location & Membership Plan Architecture',
+      'Tour & Day-Pass Booking Flow',
+      'Local Search & Lead Routing Setup',
+    ],
+    outcomes: [
+      { figure: 'Direct Bookings', detail: 'Reduced reliance on third-party listing aggregators with direct tour & desk inquiries' },
+      { figure: 'Multi-Hub Ready', detail: 'Modular location pages designed to scale effortlessly as new studio hubs open' },
+      { figure: 'Fast Clarity', detail: 'Transparent desk, cabin, and meeting-room overview built for startups and remote teams' },
+    ],
+    testimonial: {
+      quote:
+        'LyfexDigital® understood how founders and teams evaluate a co-working space online. The new digital presence presents our spaces cleanly and turns local searches directly into scheduled tours.',
+      author: 'Community & Growth Team',
+      role: 'Client Partner Summary',
+      company: 'Stint Studio Co-Working Space',
+    },
+  },
+  {
+    id: 'samrat-medical',
+    client: 'Samrat Medical',
+    title: 'Trustworthy digital presence and local discovery architecture for pharmacy retail',
+    category: 'Growth Systems',
+    industry: 'Healthcare & Pharmacy Retail',
+    year: '2025',
+    location: 'Goa, India',
+    image: clientSamratMedicalImg,
+    imageAlt:
+      'Clean contemporary pharmacy and medical retail counter with pale stone surfaces and organized apothecary shelves for Samrat Medical',
+    headlineMetric: 'Local Search & Retail Trust',
+    headlineMetricContext: 'Modernizing physical pharmacy visibility, accessibility, and customer communication',
+    summary:
+      'Helped Samrat Medical translate decades of neighborhood retail trust into a fast, accessible digital touchpoint—improving local search visibility, store discovery, and everyday customer convenience.',
+    challenge:
+      'Established physical medical and pharmacy stores frequently have outdated online listings and fragmented store information, making it difficult for residents and visitors to confirm availability, timings, or direct contact channels.',
+    architecture:
+      'Established a clear, high-legibility healthcare web presence paired with structured local SEO metadata, mobile tap-to-connect workflows, and clean service categorization.',
+    deliverables: [
+      'Healthcare Retail Web Presence',
+      'Local SEO & Store Discovery Setup',
+      'Mobile-First Customer Inquiry Paths',
+      'WCAG AA Legibility & Contrast Design',
+    ],
+    outcomes: [
+      { figure: 'High Legibility', detail: 'Clear typography and accessible mobile layouts built for customers of all age groups' },
+      { figure: 'Local Discovery', detail: 'Structured regional search presence connecting nearby residents directly to store services' },
+      { figure: 'Physical + Digital', detail: 'Extends everyday counter reliability into a dependable always-on online touchpoint' },
+    ],
+    testimonial: {
+      quote:
+        'LyfexDigital® brought clarity and professionalism to our online presence without complicating our daily counter operations. Customers can now find our store details and connect with us effortlessly.',
+      author: 'Retail Management',
+      role: 'Client Partner Summary',
+      company: 'Samrat Medical',
+    },
+  },
+  {
     id: 'nova-capital',
     client: 'Nova Capital Analytics',
-    title: 'Rebuilding institutional treasury reporting and client onboarding for speed',
+    title: 'Institutional treasury reporting and client onboarding built for international scale',
     category: 'Product Engineering',
     industry: 'Financial Infrastructure',
     year: '2026',
@@ -293,13 +451,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     image: workNordicFintechImg,
     imageAlt: 'Laptop displaying Nova Capital Analytics workspace interface on a honed concrete desk',
     headlineMetric: '-64% Onboarding Time',
-    headlineMetricContext: 'Reduced enterprise client setup from 19 days to 6.8 days in Q1–Q2',
+    headlineMetricContext: 'Reduced enterprise client setup from 19 days to 6.8 days across UK & India teams',
     summary:
-      'Replaced a fragmented legacy portal with a unified TypeScript client workspace, real-time portfolio reporting views, and a documented 48-component design system.',
+      'Replaced a fragmented legacy portal with a unified TypeScript client workspace, real-time portfolio reporting views, and a documented 48-component design system delivered from our Goa studio.',
     challenge:
-      'Nova’s institutional clients faced slow multi-page reporting tables and an opaque onboarding sequence that required 14 manual email handoffs per account.',
+      'Institutional clients faced slow multi-page reporting tables and an opaque onboarding sequence requiring 14 manual email handoffs per account across international time zones.',
     architecture:
-      'We audited every onboarding touchpoint with operations leads, then built a modular React platform with strict keyboard navigation, progressive data loading, and automated document verification steps.',
+      'We audited every onboarding touchpoint with operations leads, then engineered a modular React platform with strict keyboard navigation, progressive data loading, and automated verification steps.',
     deliverables: [
       'Client Web Platform',
       '48-Component Design System',
@@ -313,121 +471,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        'Before working with Lyfex Digital, our client portal slowed down every renewal conversation. Within three months of launching the rebuilt platform, onboarding time fell by nearly two-thirds and our engineering team inherited a codebase they could immediately extend.',
+        'Before working with LyfexDigital®, our client portal slowed down every renewal conversation. Within three months of launching the rebuilt platform, onboarding time fell by nearly two-thirds and our engineering team inherited a codebase they could immediately extend.',
       author: 'Henrik Lindholm',
       role: 'VP of Product',
       company: 'Nova Capital Analytics',
-    },
-  },
-  {
-    id: 'volt-mobility',
-    client: 'Volt Mobility',
-    title: 'Direct-to-rider digital flagship and interactive commuter configurator',
-    category: 'Brand & Web',
-    industry: 'Electric Mobility',
-    year: '2026',
-    location: 'Bengaluru & Amsterdam',
-    image: workKinetixMobilityImg,
-    imageAlt: 'Matte charcoal Volt electric commuter bike photographed inside a sunlit concrete pavilion',
-    headlineMetric: '+148% Test-Ride Bookings',
-    headlineMetricContext: 'Measured across 4 flagship showrooms in India & Europe over 120 days',
-    summary:
-      'Crafted the digital brand language, direct-to-consumer flagship, and real-time fleet booking flow for Volt’s Series B electric commuter launch.',
-    challenge:
-      'Prospective riders struggled to compare range specifications, financing options, and local service coverage on Volt’s previous template storefront, causing 78% checkout abandonment.',
-    architecture:
-      'Designed an editorial product narrative paired with a single-screen model selector, transparent monthly financing breakdown, and instant showroom slot scheduling tied directly to local fleet inventory.',
-    deliverables: [
-      'Digital Brand Guidelines',
-      'Direct-to-Consumer Web Flagship',
-      'Interactive Model & Financing Selector',
-      'Multi-City Test-Ride Scheduler',
-    ],
-    outcomes: [
-      { figure: '+148%', detail: 'Growth in qualified showroom test-ride bookings across 4 launch markets' },
-      { figure: '3.4×', detail: 'Improvement in mobile checkout completion rate on cellular networks' },
-      { figure: '$3.1M', detail: 'Direct pre-order volume attributed to the flagship in the first 90 days' },
-    ],
-    testimonial: {
-      quote:
-        'Lyfex Digital treated our website like a physical showroom. By stripping away technical jargon and clarifying range and financing on one screen, our test-ride bookings more than doubled across all four launch cities.',
-      author: 'Clara Vermeer',
-      role: 'Chief Commercial Officer',
-      company: 'Volt Mobility',
-    },
-  },
-  {
-    id: 'aura-botanics',
-    client: 'Aura Botanics',
-    title: 'Headless commerce replatforming and retention-focused subscription engine',
-    category: 'Product Engineering',
-    industry: 'Consumer Wellness',
-    year: '2025',
-    location: 'Goa & Singapore',
-    image: workVerveCommerceImg,
-    imageAlt: 'Minimalist matte stone and frosted glass Aura Botanics skincare vessels arranged on travertine',
-    headlineMetric: '+52% Repeat Revenue',
-    headlineMetricContext: 'Subscription retention lift measured over 6 billing cycles post-launch',
-    summary:
-      'Migrated Aura Botanics to a composable headless storefront with frictionless bundle building and self-service refill cadence management.',
-    challenge:
-      'A bloated monolithic storefront caused 4.8-second mobile load times and forced subscribers to contact support just to skip or swap a replenishment item.',
-    architecture:
-      'Engineered an edge-cached storefront with instant regimen pairing, one-click cadence controls inside the customer account, and automated replenishment reminders synced with warehouse fulfillment.',
-    deliverables: [
-      'Headless Storefront Architecture',
-      'Regimen Bundle Configurator',
-      'Self-Service Subscription Portal',
-      'Core Web Vitals Optimization',
-    ],
-    outcomes: [
-      { figure: '+52%', detail: 'Increase in 6-month repeat subscription revenue per cohort' },
-      { figure: '-71%', detail: 'Drop in subscription-related customer support tickets within 60 days' },
-      { figure: '+28%', detail: 'Lift in average order value through guided regimen bundling' },
-    ],
-    testimonial: {
-      quote:
-        'Our previous storefront cost us repeat buyers every month because managing refills felt like a chore. Lyfex Digital rebuilt the entire purchase and account experience—support tickets dropped 71% and subscription retention jumped 52% in two quarters.',
-      author: 'Nadia Okafor',
-      role: 'Co-Founder & Head of Digital',
-      company: 'Aura Botanics',
-    },
-  },
-  {
-    id: 'aurora-solutions',
-    client: 'Aurora Solutions',
-    title: 'Enterprise demand engine and corporate web architecture for clean energy',
-    category: 'Growth Systems',
-    industry: 'Clean Energy Engineering',
-    year: '2025',
-    location: 'Pune & Dubai',
-    image: workSolisEnergyImg,
-    imageAlt: 'Aurora Solutions clean energy engineering headquarters with geometric glass and steel facade at golden hour',
-    headlineMetric: '$4.6M Qualified Pipeline',
-    headlineMetricContext: 'Attributed to organic search and interactive ROI assessment in 9 months',
-    summary:
-      'Consolidated three regional microsites into one authoritative corporate platform backed by technical SEO architecture and automated CRM lead qualification.',
-    challenge:
-      'Industrial facility directors searching for commercial solar engineering landed on disconnected regional brochures with no structured way to estimate site feasibility or reach regional engineers.',
-    architecture:
-      'Built a unified information architecture organized by facility sector, paired with a structured commercial load estimator that routes qualified opportunities straight to regional engineering leads in HubSpot.',
-    deliverables: [
-      'Corporate Web Consolidation',
-      'Technical SEO & Sector Hub Architecture',
-      'Commercial Feasibility Estimator',
-      'CRM Qualification & Attribution Setup',
-    ],
-    outcomes: [
-      { figure: '$4.6M', detail: 'Net-new qualified commercial pipeline generated in the first 9 months' },
-      { figure: '+184%', detail: 'Growth in non-branded organic traffic from industrial procurement keywords' },
-      { figure: '4.2×', detail: 'Faster response time from inquiry submission to engineering review' },
-    ],
-    testimonial: {
-      quote:
-        'Instead of pitching another visual refresh, Lyfex Digital mapped how industrial buyers actually evaluate clean-energy contractors. The consolidated site and feasibility workflow generated $4.6M in qualified pipeline inside nine months.',
-      author: 'David Castellano',
-      role: 'Director of Growth Operations',
-      company: 'Aurora Solutions',
     },
   },
 ];
