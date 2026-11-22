@@ -10,7 +10,7 @@ import {
   type TeamMember,
 } from '../data/aboutContent';
 import { ResilientImage } from './ResilientImage';
-import type { InquiryScope } from './ContactSection';
+import type { InquiryScope, PartnerType } from '../data/siteContent';
 
 type DepartmentFilter = 'All Team' | TeamDepartment;
 
@@ -23,14 +23,14 @@ const DEPARTMENT_FILTERS: DepartmentFilter[] = [
 ];
 
 const DEPARTMENT_TO_SCOPE: Record<TeamDepartment, InquiryScope> = {
-  Strategy: 'Advisory & Audit',
+  Strategy: 'Venture & Advisory',
   Engineering: 'Product Engineering',
   Design: 'Brand & Web',
   Growth: 'Growth Systems',
 };
 
 interface AboutPageProps {
-  onStartProject: (scope?: InquiryScope, note?: string) => void;
+  onStartProject: (scope?: InquiryScope, note?: string, partner?: PartnerType) => void;
   onViewWork: () => void;
 }
 

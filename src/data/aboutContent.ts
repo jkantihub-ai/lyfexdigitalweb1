@@ -35,67 +35,68 @@ export interface TeamMember {
 }
 
 export const ABOUT_HERO = {
-  kicker: 'About Lyfex Digital',
-  location: 'Austin & London',
-  headline: 'An independent studio built around craft, accountability, and measurable outcomes.',
+  kicker: 'About LyfexDigital®',
+  location: 'Goa, India · Registered Trademark · India & Overseas',
+  headline: 'A Goa-based umbrella studio building for businesses, startups, and investors worldwide.',
   intro:
-    'Placeholder studio introduction: Lyfex Digital was founded on the belief that brand systems, frontend engineering, and growth architecture belong inside one senior team rather than separate agency silos.',
+    'Placeholder studio introduction: LyfexDigital® is a registered trademark based in Goa, India. Operating a focused portfolio of brands and digital services under one umbrella, we partner with physical and digital businesses, startups, co-working spaces, and angel investors across India and overseas.',
   image: aboutStudioCollaborationImg,
   imageAlt:
-    'Lyfex Digital designers and engineers reviewing printed interface layouts across an oak worktable in natural daylight',
-  imageCaption: 'Weekly architecture critique at our studio table',
+    'LyfexDigital designers and engineers reviewing printed interface layouts across an oak worktable in natural daylight',
+  imageCaption: 'Weekly architecture critique at the LyfexDigital® studio in Goa',
 };
 
 export const MISSION_CONTENT = {
   heading: 'Our Mission',
   statement:
-    'To design and engineer digital platforms that simplify complex buying journeys, operate at sub-second speed, and remain maintainable long after launch day.',
+    'To unify brand craft, software engineering, and growth systems under one dependable umbrella for physical businesses, startups, co-working hubs, and angel-backed ventures across India and overseas.',
   paragraphs: [
-    'Placeholder mission context: Most organizations inherit a patchwork of disconnected marketing pages, brittle templates, and unmeasured acquisition channels. Our mission is to replace that friction with deliberate architecture.',
-    'Placeholder operating principle: We take on a focused number of client partnerships each quarter so every engagement is led directly by senior partners across strategy, design, engineering, and analytics.',
+    'Placeholder mission context: Whether an organization runs physical retail, co-working spaces, hospitality venues, or venture-backed digital products, disconnected websites and fragmented vendors slow momentum. Our mission is to deliver cohesive digital foundations that perform.',
+    'Placeholder operating principle: From our headquarters in Goa, LyfexDigital® houses specialized service brands under one roof—allowing founders, space operators, and angel investors to engage a single accountable partner from initial concept through international scale.',
   ],
   highlights: [
-    { label: 'Founded', value: '2019' },
-    { label: 'Studio Hubs', value: 'Austin & London' },
-    { label: 'Senior Ratio', value: '100% Principal-Led' },
+    { label: 'Trademark', value: 'LyfexDigital®' },
+    { label: 'Studio Base', value: 'Panaji, Goa' },
+    { label: 'Client Reach', value: 'India & Overseas' },
+    { label: 'Ecosystem', value: 'Startups · Spaces · Angels' },
   ],
 };
 
 export const COMPANY_HISTORY: HistoryMilestone[] = [
   {
     year: '2019',
-    location: 'Austin, TX',
-    title: 'Studio founded as a two-person web engineering practice',
+    location: 'Panaji, Goa',
+    title: 'Founded in Goa as a focused web and digital studio',
     description:
-      'Placeholder milestone text: Lyfex Digital began in downtown Austin focused on high-speed React storefronts and technical search audits for early-stage SaaS and consumer founders.',
+      'Placeholder milestone text: LyfexDigital® began in Goa focused on high-speed websites, online booking flows, and technical search foundations for regional physical businesses and early digital founders.',
   },
   {
     year: '2021',
-    location: 'Austin, TX',
-    title: 'Integrated brand systems and product design discipline',
+    location: 'Goa & Pan-India',
+    title: 'Partnered with startups, co-working spaces, and Indian growth brands',
     description:
-      'Placeholder milestone text: Expanded into a multidisciplinary team of ten, pairing editorial visual identity and component design systems directly with production frontend engineering.',
+      'Placeholder milestone text: Expanded into product design and community infrastructure, helping co-working hubs, hospitality operators, and early-stage Indian startups build digital platforms that convert.',
   },
   {
     year: '2023',
-    location: 'London, UK',
-    title: 'Opened our Clerkenwell studio to serve European partners',
+    location: 'India & Overseas',
+    title: 'Scaled international delivery and angel investor collaborations',
     description:
-      'Placeholder milestone text: Established our London office to support transatlantic fintech, clean-energy, and mobility clients requiring shared time-zone engineering sprints.',
+      'Placeholder milestone text: Built overlapping sprint schedules from Goa to serve overseas clients across Europe, the UK, UAE, and Singapore while partnering with angel investors on technical diligence and portfolio product launches.',
   },
   {
     year: '2025',
-    location: 'Austin & London',
-    title: 'Launched dedicated Revenue & Workflow Automation practice',
+    location: 'Goa, India',
+    title: 'Registered LyfexDigital® trademark & unified umbrella portfolio',
     description:
-      'Placeholder milestone text: Formalized our CRM, attribution, and self-service portal capabilities after seeing marketing teams lose qualified pipeline between website launch and sales handoff.',
+      'Placeholder milestone text: Formalized our registered trademark and organized our specialized brands and services under the LyfexDigital® umbrella spanning Studio, Engineering, Growth, and our Venture & Spaces Desk.',
   },
   {
     year: '2026',
-    location: 'Global',
-    title: '42+ production platforms shipped across 9 industries',
+    location: 'Goa · Worldwide',
+    title: '42+ platforms shipped across physical, digital, and venture ecosystems',
     description:
-      'Placeholder milestone text: Today Lyfex Digital operates as an independent 22-person studio partnering with B2B and consumer leadership teams on multi-quarter digital roadmaps.',
+      'Placeholder milestone text: Today LyfexDigital® continues to operate independently from Goa, partnering with physical and digital businesses, co-working networks, startups, and angel investors across India and overseas.',
   },
 ];
 
@@ -136,18 +137,18 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Marcus Vance',
     role: 'Managing Partner, Strategy',
     department: 'Strategy',
-    location: 'Austin',
+    location: 'Goa, India',
     since: '2019',
     image: aboutTeamMarcusImg,
     imageAlt: 'Portrait of Marcus Vance, Managing Partner of Strategy at Lyfex Digital',
     shortBio:
-      'Placeholder bio: Leads commercial positioning, buyer research, and multi-quarter digital roadmaps for enterprise and Series B–D teams.',
+      'Placeholder bio: Leads commercial positioning, omnichannel strategy, and digital roadmaps for physical and digital businesses in India and overseas.',
     fullBio:
-      'Placeholder extended bio: Marcus co-founded Lyfex Digital in 2019 after twelve years advising B2B software and industrial technology companies on go-to-market web architecture. He oversees discovery diagnostics, executive alignment, and measurable conversion modeling across both studio hubs.',
+      'Placeholder extended bio: Marcus co-founded Lyfex Digital in Goa in 2019 after twelve years advising physical retail networks and B2B software companies on go-to-market web architecture. He oversees discovery diagnostics, executive alignment, and measurable conversion modeling for Indian and overseas partners.',
     focusAreas: [
-      'B2B Positioning & Information Architecture',
+      'Physical-to-Digital & B2B Positioning',
       'Commercial Funnel Diagnostics',
-      'Executive Stakeholder Alignment',
+      'India & Overseas Market Expansion',
     ],
   },
   {
@@ -155,17 +156,17 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Elena Rostova',
     role: 'Principal Frontend Engineer',
     department: 'Engineering',
-    location: 'London',
+    location: 'Goa, India',
     since: '2020',
     image: aboutTeamElenaImg,
     imageAlt: 'Portrait of Elena Rostova, Principal Frontend Engineer at Lyfex Digital',
     shortBio:
       'Placeholder bio: Architects TypeScript web applications, headless commerce storefronts, and Core Web Vitals performance budgets.',
     fullBio:
-      'Placeholder extended bio: Elena leads frontend architecture and engineering quality standards at Lyfex Digital. Prior to joining the studio, she led platform engineering teams in financial infrastructure and specializes in accessible, sub-second React architectures designed for long-term internal maintainability.',
+      'Placeholder extended bio: Based at our Goa studio, Elena leads frontend architecture and engineering quality standards at Lyfex Digital. Prior to joining the studio, she led platform engineering teams in financial infrastructure and specializes in accessible, sub-second React architectures built for global reliability.',
     focusAreas: [
       'React & TypeScript Platform Architecture',
-      'Headless Commerce & Edge Performance',
+      'Omnichannel & Headless Commerce',
       'WCAG AA Accessibility Engineering',
     ],
   },
@@ -174,14 +175,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Soren Lindqvist',
     role: 'Design Director',
     department: 'Design',
-    location: 'London',
+    location: 'Goa, India',
     since: '2021',
     image: aboutTeamSorenImg,
     imageAlt: 'Portrait of Soren Lindqvist, Design Director at Lyfex Digital',
     shortBio:
       'Placeholder bio: Directs typographic systems, editorial web flagships, and token-driven component libraries across client engagements.',
     fullBio:
-      'Placeholder extended bio: Soren brings fifteen years of editorial and digital product design experience across Copenhagen and London. At Lyfex Digital, he leads visual direction, interactive prototyping, and pragmatic design systems built to survive real-world product iteration.',
+      'Placeholder extended bio: Soren brings fifteen years of editorial and digital product design experience across Europe and India. Working from our Goa studio, he leads visual direction, interactive prototyping, and pragmatic design systems for physical brands and software platforms alike.',
     focusAreas: [
       'Editorial Web & Brand Systems',
       'Design Tokens & Component Libraries',
@@ -193,16 +194,16 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Priya Nair',
     role: 'Director of Growth & Automation',
     department: 'Growth',
-    location: 'Austin',
+    location: 'Goa, India',
     since: '2022',
     image: aboutTeamPriyaImg,
     imageAlt: 'Portrait of Priya Nair, Director of Growth and Automation at Lyfex Digital',
     shortBio:
-      'Placeholder bio: Oversees technical SEO architecture, server-side attribution, and automated CRM revenue workflows.',
+      'Placeholder bio: Oversees multi-region technical SEO, server-side attribution, and automated CRM workflows across India and international markets.',
     fullBio:
-      'Placeholder extended bio: Priya bridges web engineering and revenue operations. She leads technical search strategy, conversion experimentation, and automated lead-routing architectures so client marketing investments translate cleanly into sales-ready pipeline.',
+      'Placeholder extended bio: Priya bridges web engineering and revenue operations from Goa. She leads local and international search strategy, conversion experimentation, and automated lead-routing workflows so both physical locations and digital funnels turn visits into qualified pipeline.',
     focusAreas: [
-      'Technical SEO & Programmatic Hubs',
+      'India & International Technical SEO',
       'CRM Qualification & Lead Routing',
       'Server-Side Analytics & Attribution',
     ],

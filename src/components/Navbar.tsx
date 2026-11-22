@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-export type ActivePage = 'home' | 'about';
+export type ActivePage = 'home' | 'about' | 'contact';
 
 interface NavbarProps {
   currentPage: ActivePage;
@@ -11,9 +11,8 @@ interface NavbarProps {
 
 const HOME_SECTION_LINKS = [
   { label: 'Capabilities', sectionId: 'capabilities' },
+  { label: 'Portfolio', sectionId: 'umbrella' },
   { label: 'Work', sectionId: 'work' },
-  { label: 'Approach', sectionId: 'approach' },
-  { label: 'Journal', sectionId: 'journal' },
 ];
 
 export function Navbar({ currentPage, onNavigate, onStartProject }: NavbarProps) {
@@ -41,7 +40,7 @@ export function Navbar({ currentPage, onNavigate, onStartProject }: NavbarProps)
           }}
           className="font-display text-lg font-semibold tracking-tight text-[#0E1116] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8]"
         >
-          Lyfex Digital
+          LyfexDigital®
         </a>
 
         {/* Zone 2: 5 concise single-line text links */}
@@ -77,6 +76,22 @@ export function Navbar({ currentPage, onNavigate, onStartProject }: NavbarProps)
             }`}
           >
             About
+          </a>
+
+          <a
+            href="#contact"
+            aria-current={currentPage === 'contact' ? 'page' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('contact');
+            }}
+            className={`relative py-1 whitespace-nowrap shrink-0 transition-colors duration-150 after:absolute after:bottom-0 after:left-0 after:h-px after:bg-[#0E1116] after:transition-[width] after:duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8] ${
+              currentPage === 'contact'
+                ? 'text-[#0E1116] after:w-full'
+                : 'hover:text-[#0E1116] after:w-0 hover:after:w-full'
+            }`}
+          >
+            Contact
           </a>
         </nav>
 
@@ -137,6 +152,21 @@ export function Navbar({ currentPage, onNavigate, onStartProject }: NavbarProps)
               }`}
             >
               About
+            </a>
+            <a
+              href="#contact"
+              aria-current={currentPage === 'contact' ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('contact');
+              }}
+              className={`flex min-h-[44px] items-center text-base font-medium transition-colors ${
+                currentPage === 'contact'
+                  ? 'text-[#1D4ED8]'
+                  : 'text-neutral-700 hover:text-[#0E1116]'
+              }`}
+            >
+              Contact
             </a>
             <div className="pt-3">
               <button

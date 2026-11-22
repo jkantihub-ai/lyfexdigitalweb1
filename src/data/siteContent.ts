@@ -6,6 +6,36 @@ import workSolisEnergyImg from '../assets/images/work_solis_energy_1795276673324
 
 export type CaseStudyCategory = 'Product Engineering' | 'Brand & Web' | 'Growth Systems';
 
+export type InquiryScope =
+  | 'Product Engineering'
+  | 'Brand & Web'
+  | 'Growth Systems'
+  | 'Venture & Advisory';
+
+export type PartnerType =
+  | 'Physical Business'
+  | 'Digital Startup'
+  | 'Co-Working Space'
+  | 'Angel Investor';
+
+export interface UmbrellaBrand {
+  number: string;
+  name: string;
+  category: string;
+  audience: string;
+  description: string;
+  offerings: string[];
+  defaultScope: InquiryScope;
+  defaultPartner: PartnerType;
+}
+
+export interface EcosystemPartner {
+  title: string;
+  regionNote: string;
+  summary: string;
+  partnerType: PartnerType;
+}
+
 export interface MetricItem {
   value: string;
   label: string;
@@ -83,9 +113,87 @@ export interface LegalDocument {
 
 export const HERO_MEDIA = {
   image: heroLyfexStudioImg,
-  alt: 'Lyfex Digital design and engineering studio interior with oak worktables and natural daylight through floor-to-ceiling windows',
-  caption: 'Lyfex Digital Studio — Austin & London',
+  alt: 'LyfexDigital design and engineering studio interior with oak worktables and natural daylight through floor-to-ceiling windows',
+  caption: 'LyfexDigital® Studio — Goa, India',
 };
+
+export const ECOSYSTEM_PARTNERS: EcosystemPartner[] = [
+  {
+    title: 'Physical & Digital Businesses',
+    regionNote: 'India & Overseas',
+    summary:
+      'Hospitality groups, retail brands, industrial operators, and software companies modernizing their storefronts, web platforms, and acquisition funnels.',
+    partnerType: 'Physical Business',
+  },
+  {
+    title: 'Startups & Founders',
+    regionNote: 'Pre-Seed to Series B',
+    summary:
+      'Rapid product architecture, MVP engineering, launch flagships, and early growth instrumentation built to ship fast and scale cleanly.',
+    partnerType: 'Digital Startup',
+  },
+  {
+    title: 'Co-Working Spaces & Hubs',
+    regionNote: 'Goa, Pan-India & Global',
+    summary:
+      'Member booking platforms, multi-location web presence, community portals, and local-to-international occupancy growth systems.',
+    partnerType: 'Co-Working Space',
+  },
+  {
+    title: 'Angel Investors & Syndicates',
+    regionNote: 'Portfolio Support',
+    summary:
+      'Technical diligence, rapid venture prototyping, and dedicated design-and-engineering squads supporting portfolio companies post-investment.',
+    partnerType: 'Angel Investor',
+  },
+];
+
+export const UMBRELLA_PORTFOLIO: UmbrellaBrand[] = [
+  {
+    number: '01.',
+    name: 'Lyfex Studio',
+    category: 'Brand & Digital Flagships',
+    audience: 'Physical & Digital Brands',
+    description:
+      'Placeholder umbrella brand description: Our flagship identity and editorial web practice crafting high-converting digital homes for Indian and international companies.',
+    offerings: ['Brand identity systems', 'Custom web flagships', 'Design systems'],
+    defaultScope: 'Brand & Web',
+    defaultPartner: 'Physical Business',
+  },
+  {
+    number: '02.',
+    name: 'Lyfex Engineering',
+    category: 'Product & Commerce Platforms',
+    audience: 'Startups & Enterprises',
+    description:
+      'Placeholder umbrella brand description: Full-stack web applications, omnichannel commerce, and custom booking or operational portals engineered for speed.',
+    offerings: ['React & TypeScript apps', 'Headless commerce', 'Booking & member portals'],
+    defaultScope: 'Product Engineering',
+    defaultPartner: 'Digital Startup',
+  },
+  {
+    number: '03.',
+    name: 'Lyfex Growth',
+    category: 'Search, Demand & Automation',
+    audience: 'India & Overseas Markets',
+    description:
+      'Placeholder umbrella brand description: Technical SEO, multi-region paid acquisition pages, and CRM workflow automation engineered for measurable pipeline.',
+    offerings: ['Multi-region technical SEO', 'Conversion optimization', 'CRM & lead automation'],
+    defaultScope: 'Growth Systems',
+    defaultPartner: 'Physical Business',
+  },
+  {
+    number: '04.',
+    name: 'Lyfex Venture & Spaces Desk',
+    category: 'Startups, Co-Working & Angels',
+    audience: 'Ecosystem Partners',
+    description:
+      'Placeholder umbrella brand description: Specialized advisory, rapid MVP build tracks, and digital infrastructure tailored for early-stage founders, co-working hubs, and angel portfolios.',
+    offerings: ['Founder MVP sprints', 'Co-working growth systems', 'Angel portfolio support'],
+    defaultScope: 'Venture & Advisory',
+    defaultPartner: 'Angel Investor',
+  },
+];
 
 export const IMPACT_METRICS: MetricItem[] = [
   {
@@ -115,11 +223,11 @@ export const CAPABILITIES: CapabilityItem[] = [
     number: '01.',
     title: 'Product & Platform Engineering',
     summary:
-      'We architect and build custom web applications, customer portals, and composable storefronts engineered for sub-second response times and clean handoff to internal teams.',
+      'We architect and build custom web applications, customer portals, and omnichannel storefronts for both digital-native startups and established physical businesses expanding online.',
     deliverables: [
       'React & TypeScript web applications',
-      'Headless commerce & checkout architecture',
-      'Component libraries & design token systems',
+      'Headless & omnichannel commerce architecture',
+      'Booking, inventory & showroom portals',
       'API integration & performance auditing',
     ],
     typicalTimeline: '8–14 weeks',
@@ -130,11 +238,11 @@ export const CAPABILITIES: CapabilityItem[] = [
     number: '02.',
     title: 'Brand Identity & Web Flagships',
     summary:
-      'Distinctive visual identities and editorial marketing sites built to clarify complex offers, shorten enterprise sales cycles, and convert high-intent visitors.',
+      'Distinctive visual identities and editorial marketing sites that translate physical-world craftsmanship and complex digital offers into clear, high-converting web experiences.',
     deliverables: [
       'Digital brand systems & typography',
       'Editorial marketing flagships',
-      'Interactive product configurators',
+      'Interactive product & location configurators',
       'Structured CMS content modeling',
     ],
     typicalTimeline: '6–10 weeks',
@@ -145,9 +253,9 @@ export const CAPABILITIES: CapabilityItem[] = [
     number: '03.',
     title: 'Search & Acquisition Architecture',
     summary:
-      'Technical search foundations, conversion experimentation, and full-funnel analytics that turn marketing spend into measurable pipeline rather than vanity traffic.',
+      'Local, national, and international search foundations paired with conversion experimentation that turn demand across India and overseas markets into measurable pipeline.',
     deliverables: [
-      'Technical SEO & programmatic landing pages',
+      'Technical & multi-region SEO architecture',
       'Conversion rate auditing & experimentation',
       'Server-side analytics & attribution tracking',
       'Paid acquisition landing systems',
@@ -160,10 +268,10 @@ export const CAPABILITIES: CapabilityItem[] = [
     number: '04.',
     title: 'Revenue & Workflow Automation',
     summary:
-      'Connected CRM pipelines, automated qualification flows, and internal operational tools that eliminate manual bottlenecks between marketing, sales, and customer delivery.',
+      'Connected CRM pipelines, automated qualification flows, and internal operational tools bridging physical storefronts, field teams, and global digital sales.',
     deliverables: [
-      'CRM & lead-routing architecture',
-      'Automated onboarding & billing flows',
+      'CRM & multi-region lead-routing architecture',
+      'Automated onboarding, booking & billing flows',
       'Executive reporting & pipeline dashboards',
       'Legacy system consolidation',
     ],
@@ -181,7 +289,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Product Engineering',
     industry: 'Financial Infrastructure',
     year: '2026',
-    location: 'London',
+    location: 'Mumbai & London',
     image: workNordicFintechImg,
     imageAlt: 'Laptop displaying Nova Capital Analytics workspace interface on a honed concrete desk',
     headlineMetric: '-64% Onboarding Time',
@@ -218,11 +326,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Brand & Web',
     industry: 'Electric Mobility',
     year: '2026',
-    location: 'Amsterdam',
+    location: 'Bengaluru & Amsterdam',
     image: workKinetixMobilityImg,
     imageAlt: 'Matte charcoal Volt electric commuter bike photographed inside a sunlit concrete pavilion',
     headlineMetric: '+148% Test-Ride Bookings',
-    headlineMetricContext: 'Measured across 4 European launch cities over the first 120 days',
+    headlineMetricContext: 'Measured across 4 flagship showrooms in India & Europe over 120 days',
     summary:
       'Crafted the digital brand language, direct-to-consumer flagship, and real-time fleet booking flow for Volt’s Series B electric commuter launch.',
     challenge:
@@ -255,7 +363,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Product Engineering',
     industry: 'Consumer Wellness',
     year: '2025',
-    location: 'Austin',
+    location: 'Goa & Singapore',
     image: workVerveCommerceImg,
     imageAlt: 'Minimalist matte stone and frosted glass Aura Botanics skincare vessels arranged on travertine',
     headlineMetric: '+52% Repeat Revenue',
@@ -292,7 +400,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Growth Systems',
     industry: 'Clean Energy Engineering',
     year: '2025',
-    location: 'Denver',
+    location: 'Pune & Dubai',
     image: workSolisEnergyImg,
     imageAlt: 'Aurora Solutions clean energy engineering headquarters with geometric glass and steel facade at golden hour',
     headlineMetric: '$4.6M Qualified Pipeline',
@@ -439,11 +547,11 @@ export const LEGAL_DOCUMENTS: Record<'privacy' | 'terms', LegalDocument> = {
       },
       {
         heading: 'How We Use Project Inquiries',
-        body: 'Information shared with Lyfex Digital via email or project discovery is used solely to evaluate project scope, schedule discovery conversations, and prepare engagement proposals. We never sell, rent, or trade contact lists.',
+        body: 'Information shared with LyfexDigital® via email or project discovery is used solely to evaluate project scope, schedule discovery conversations, and prepare engagement proposals. We never sell, rent, or trade contact lists.',
       },
       {
         heading: 'Data Retention & Contact',
-        body: 'You may request access to, correction of, or deletion of any correspondence held by Lyfex Digital LLC at any time by writing to privacy@lyfexdigital.com.',
+        body: 'You may request access to, correction of, or deletion of any correspondence held by LyfexDigital® at any time by writing to privacy@lyfexdigital.com.',
       },
     ],
   },
@@ -453,8 +561,8 @@ export const LEGAL_DOCUMENTS: Record<'privacy' | 'terms', LegalDocument> = {
     updated: 'Last updated November 2026',
     sections: [
       {
-        heading: 'Intellectual Property',
-        body: 'All case study narratives, architectural photography, visual assets, and copy published on this website remain the intellectual property of Lyfex Digital LLC and our respective client partners. Upon full payment of a client engagement, custom production deliverables transfer to the client per our Master Services Agreement.',
+        heading: 'Registered Trademark & Intellectual Property',
+        body: 'LyfexDigital® is a registered trademark. All umbrella brand names, case study narratives, architectural photography, visual assets, and copy published on this website remain the intellectual property of LyfexDigital® and our respective client partners. Upon full payment of a client engagement, custom production deliverables transfer to the client per our Master Services Agreement.',
       },
       {
         heading: 'Project Estimates & Scope',
@@ -462,7 +570,7 @@ export const LEGAL_DOCUMENTS: Record<'privacy' | 'terms', LegalDocument> = {
       },
       {
         heading: 'Governing Jurisdiction',
-        body: 'Lyfex Digital LLC operates from Austin, Texas and London, United Kingdom. Formal client engagements are governed by the jurisdiction specified in the applicable Master Services Agreement.',
+        body: 'LyfexDigital® operates from Panaji, Goa, India and partners with physical businesses, digital startups, co-working spaces, and angel investors across India and overseas. Formal client engagements are governed by the jurisdiction specified in the applicable Master Services Agreement.',
       },
     ],
   },
